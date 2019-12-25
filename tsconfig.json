@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6", 
+    "module": "esnext",  
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "exclude": [
+    "./webpack.config.js",
+    "./node_modules",
+    "./public"
+  ]
+}

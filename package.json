@@ -1,0 +1,75 @@
+{
+  "name": "@rokt/page-template",
+  "private": true,
+  "scripts": {
+    "build": "npm run clean && npm run build:es2015 && npm run build:es5",
+    "build:es2015": "webpack --env:prod --es2015",
+    "build:es2015:stats": "webpack --env:prod --stats --es2015",
+    "build:es5": "webpack --env:prod",
+    "build:es5:stats": "webpack --env:prod --stats",
+    "build:stats": "npm run build:es2015:stats",
+    "build:watch": "npm run clean && webpack --watch --es2015",
+    "build:watch:prod": "npm run clean && webpack --watch --es2015 --env:prod",
+    "clean": "webpack --clean",
+    "lint": "tslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "tslint --fix \"src/**/*.{ts,tsx}\"",
+    "start": "npm run build:watch",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,js,tsx,jsx}"
+    ],
+    "coverageDirectory": "reports/coverage",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/../../mocks/jestFileMock.js",
+      "\\.(css|less)$": "<rootDir>/../../mocks/jestStyleMock.js",
+      "^lodash-es$": "lodash",
+      "^~/(.*)$": "<rootDir>/src/$1"
+    },
+    "reporters": [
+      "default"
+    ],
+    "testRegex": ".*\\.spec\\.(jsx?|tsx?)$",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!lodash-es)"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "css-loader": "^3.1.0",
+    "fs-extra": "^8.1.0",
+    "jest": "^24.9.0",
+    "npm-run-all": "^4.1.5",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.38.0",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "crayon": "^6.0.1",
+    "crayon-react": "^6.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rxjs": "^6.5.3",
+    "use-subscribe": "^2.0.0"
+  }
+}
