@@ -7,7 +7,7 @@ import { strings } from "~/platform/strings"
 import { useOnEmit } from "~/platform/use-subscribe"
 
 export const HangerView = () => {
-  const { aircraftMap ,router } = useInject()
+  const { aircraftMap, navigator } = useInject()
 
   useOnEmit(aircraftMap.$aircrafts)
   const parkedAircraft = aircraftMap.getByLocation('hanger')
@@ -32,7 +32,7 @@ export const HangerView = () => {
 
   return <div>
     <button 
-      onClick={() => navigate.toMainMenu(router)}>
+      onClick={() => navigator.toMainMenu()}>
       Back
     </button>
     <h1>Hanger</h1>

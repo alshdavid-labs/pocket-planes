@@ -3,7 +3,7 @@ import { useInject } from "../context"
 import * as navigate from '~/gui/navigation'
 
 export const HomeView = () => {
-  const { airportMap, router } = useInject()
+  const { airportMap, navigator } = useInject()
 
   return <div>
     {
@@ -11,13 +11,13 @@ export const HomeView = () => {
         .toArray()
         .map(airport => <button 
           key={airport.code} 
-          onClick={() => navigate.toAirport(router, airport.code)}>
+          onClick={() => navigator.toAirport(airport.code)}>
           {airport.code}
         </button>)
     }
     <div>
       <button 
-        onClick={() => navigate.toHanger(router)}>
+        onClick={() => navigator.toHanger()}>
         Hanger
       </button>
     </div>

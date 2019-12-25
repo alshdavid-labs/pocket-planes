@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react'
-// import { useContext } from 'preact/hooks'
 import { state } from './state'
 
 export const GlobalContext = createContext({})
